@@ -8,13 +8,13 @@ Tested up to: 3.4.2
 Stable tag: 1.0
 License: GPLv2 or later
 
-Create a javascript based, light-weight and non-annoying onclick quick box popup box in your blog.
+Create a javascript based, light-weight and non-annoying onclick quick  popup box in your blog.
 
 == Description ==
 
 A quicklook into Quick Box Popup
 
-    ★ Create a light weight quick box popup
+    ★ Create a light weight quick onclick popup box 
     ★ Full control on popup content
     ★ Standard WordPress content editor
     ★ Timeout based popup display
@@ -26,7 +26,7 @@ This plugin allows you to create a quick box popup window with custom content in
 
 = Want more features ? =
 
-Check out the [premium version] (http://xyzscripts.com/wordpress-plugins/xyz-wp-popup/ "XYZ WP Popup") of this plugin.
+Check out the [premium version](http://xyzscripts.com/wordpress-plugins/xyz-wp-popup/ "XYZ WP Popup") of this plugin.
 
 = About =
 
