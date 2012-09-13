@@ -49,7 +49,7 @@ A quick box popup is used to display any content inside a popup within a webpage
 
 = 2. The Quick Box Popup plugin is not working properly =
 
-Please check the wordpress version you are using. Make sure it meets the minimum version recommended by us. Make sure all files of the `Quick Box Popup` plugin uploaded to the folder `wp-content/plugins/`
+Please check the wordpress version you are using. Make sure it meets the minimum version recommended by us. Make sure all files of the `Quick Box Popup` plugin are uploaded to the folder `wp-content/plugins/`
 
 = 3. Can I use this plugin with other popup plugins ? =
 
