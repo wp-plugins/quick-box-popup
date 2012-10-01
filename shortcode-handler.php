@@ -1,6 +1,6 @@
 <?php
 
-$page_option=get_option('xyz_qbr_page_option');
+$page_option=get_option('xyz_qbx_page_option');
 if($page_option==3)
 {
 
