@@ -31,7 +31,13 @@ Check out the [premium version](http://xyzscripts.com/wordpress-plugins/xyz-wp-p
 
 Quick Box Popup is developed and maintained by [XYZScripts](http://xyzscripts.com/ "xyzscripts.com"). For any support, you may [contact us](http://xyzscripts.com/support/ "XYZScripts Support").
 
+★ [Quick Box Popup User Guide](http://docs.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup User Guide")
+★ [Quick Box Popup FAQ](http://kb.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup FAQ")
+
 == Installation ==
+
+★ [Quick Box Popup User Guide](http://docs.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup User Guide")
+★ [Quick Box Popup FAQ](http://kb.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup FAQ")
 
 1. Extract `quick-box-popup.zip` to your `/wp-content/plugins/` directory.
 2. In the admin panel under plugins activate Quick Box Popup.
@@ -41,6 +47,9 @@ Quick Box Popup is developed and maintained by [XYZScripts](http://xyzscripts.co
 If you need any further help, you may contact our [support desk](http://xyzscripts.com/support/ "XYZScripts Support").
 
 == Frequently Asked Questions ==
+
+★ [Quick Box Popup User Guide](http://docs.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup User Guide")
+★ [Quick Box Popup FAQ](http://kb.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup FAQ")
 
 = 1. What is a "quick box popup" ? =
 
@@ -97,6 +106,8 @@ If you have had issues with shortcode, you must do this upgrade.
 
 == More Information ==
 
+★ [Quick Box Popup User Guide](http://docs.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup User Guide")
+★ [Quick Box Popup FAQ](http://kb.xyzscripts.com/wordpress-plugins/quick-box-popup/ "Quick Box Popup FAQ")
 
 = Troubleshooting =
 
