@@ -88,7 +88,7 @@ More questions ? [Drop a mail](http://xyzscripts.com/support/ "XYZScripts Suppor
 
 == Screenshots ==
 
-1. Sample quick box which has a feedback form.
+1. Sample quick box which has a feedback form. 
 
 == Changelog ==
 
