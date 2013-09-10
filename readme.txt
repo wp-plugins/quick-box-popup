@@ -1,8 +1,7 @@
 ﻿=== Quick Box Popup ===
 Contributors: f1logic
 Donate link: http://xyzscripts.com/donate/
-
-Tags: quick popup, quick box, quick popup box, quick box popup, on click popup, on click quick popup, onclick popup, custom message popup, popup message on pages, popup message
+Tags:
 Requires at least: 2.8
 Tested up to: 3.6
 Stable tag: 1.0.1
