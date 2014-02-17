@@ -1,15 +1,92 @@
 <?php
-add_action ( 'get_footer', 'qbx_lightbox_create');//, [priority], [accepted_args] );
-wp_enqueue_script('jquery');
-function qbx_lightbox_create()
-{	$page_option=get_option('xyz_qbx_page_option');	
+$xyz_qbx_cache_enable=get_option("xyz_qbx_cache_enable");
+if($xyz_qbx_cache_enable==1)
+{	
+add_action ( 'get_footer', 'xyz_qbx_container');//, [priority], [accepted_args] );
+}
+else
+{
+ 	add_action ( 'get_footer', 'xyz_qbx_action_callback');
+}
+function xyz_qbx_container()
+{
+	echo "<span id='xyz_qbx_container'></span>";
+}
+
+	add_action( 'wp', 'xyz_qbx_lightbox_create' );
+
+function xyz_qbx_lightbox_create()
+{	
+	global $xyz_qbx_cache_enable;
+	
+	$ispage=is_page()?1:0;
+	$ispost=is_single()?1:0;
+	$ishome=is_home()?1:0;
+		wp_enqueue_script('jquery');
+	
+	if($xyz_qbx_cache_enable==1)
+	{
+		
+		wp_enqueue_script( 'xyz_qbx_ajax_script', plugins_url( 'qbx_request.js', __FILE__ ), array('jquery') );
+	wp_localize_script( 'xyz_qbx_ajax_script', 'xyz_qbx_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'ispage'=>$ispage,'ispost'=>$ispost,'ishome'=>$ishome) );
+	}
+}
+
+add_action( 'wp_ajax_xyz_qbx_action', 'xyz_qbx_action_callback' );
+add_action( 'wp_ajax_nopriv_xyz_qbx_action', 'xyz_qbx_action_callback' );
+
+
+
+function xyz_qbx_action_callback()
+{
+	global $xyz_qbx_cache_enable;
+	
+	$page_option=get_option('xyz_qbx_page_option');
+	$xyz_qbx_enable=get_option('xyz_qbx_enable');
+	$xyz_qbx_showing_option=get_option('xyz_qbx_showing_option');
+	if($page_option==2)
+	{
+		if($xyz_qbx_cache_enable==1)
+		{
+		$page=$_POST['xyz_qbx_pg'];
+		$post=$_POST['xyz_qbx_ps'];
+		$home=$_POST['xyz_qbx_hm'];
+		}
+		else
+		{
+			$page=is_page()?1:0;
+			$post=is_single()?1:0;
+			$home=is_home()?1:0;
+		}	
+		$xyz_qbx_sh_arr=explode(",", $xyz_qbx_showing_option);
+		
+		if(!(($xyz_qbx_sh_arr[0]==1 && $page==1) || ($xyz_qbx_sh_arr[1]==1 && $post==1) || ($xyz_qbx_sh_arr[2]==1 && $home==1)))
+               return;
+           	
+    }
 	if($page_option==3)
 	{
-		return false;
+		if($xyz_qbx_cache_enable==1)
+		{
+        $shortcode=$_POST['xyz_qbx_shortcd'];
+        if($shortcode!=1)
+        	
+		    return;
+		}
+		else 
+			return;
 	}
-	echo qbx_lightbox_display();
+
+	if($xyz_qbx_enable==1)
+	
+		echo xyz_qbx_lightbox_display();
+	if($xyz_qbx_cache_enable==1)
+	{
+	    die();
+	}
 }
-function qbx_lightbox_display()
+
+function xyz_qbx_lightbox_display()
 {
 	$html=get_option('xyz_qbx_html');	
 	$width=get_option('xyz_qbx_width');
@@ -84,7 +161,7 @@ display: block;
 <div id="qbx_light" class="qbx_content"><?php if(!isset($_COOKIE['_xyz_qbx_until'])) {?>
 
 <!-- <div width="100%" height="20px" style="text-align:right;padding:0px;margin:0px;"><a href = "javascript:void(0)" onclick = "javascript:qbx_hide_lightbox()">CLOSE</a></div> -->
-<?php if($iframe_option==1) { ?><iframe  src="<?php echo  plugins_url();?>/quick-box-popup/iframe.php?" class="qbx_iframe" scrolling="no"></iframe><?php }else{  
+<?php if($iframe_option==1) { ?><iframe  src="<?php echo  get_bloginfo('wpurl') ;?>/index.php?xyz_qbx=iframe" class="qbx_iframe" scrolling="no"></iframe><?php }else{  
 echo do_shortcode($html);}
 }?>
 </div>

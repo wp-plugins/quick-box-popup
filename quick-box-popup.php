@@ -3,7 +3,7 @@
 Plugin Name:Quick Box Popup
 Plugin URI: http://xyzscripts.com/wordpress-plugins/quick-box-popup/
 Description: This plugin allows you to create a quick popup box with custom content in your site. You can customize the popup display by configuring various settings such as  position settings (height,width,top,left), display logic settings (time delay after page load, number of pages to browse,  repeat interval) and style settings(z-index, color, border etc). The plugin supports automatic and manual (shortcode)  display.
-Version: 1.0.1
+Version: 1.1
 Author: xyzscripts.com
 Author URI: http://xyzscripts.com/
 License: GPLv2 or later
@@ -32,14 +32,14 @@ if ( !function_exists( 'add_action' ) )
 }
 
 ob_start();
-error_reporting(0);
+//error_reporting(0);
 define('XYZ_QBX_PLUGIN_FILE',__FILE__);
 
 require( dirname( __FILE__ ) . '/xyz-functions.php' );
 
 require( dirname( __FILE__ ) . '/admin/install.php' );
 
-
+require( dirname( __FILE__ ) . '/ajax-handler.php' );
 
 require( dirname( __FILE__ ) . '/admin/menu.php' );
 
@@ -59,5 +59,24 @@ function xyz_qbx_credit() {
 	echo $content;
 }
 
+
+
+
+function xyz_qbx_query_vars($vars) {
+	$vars[] = 'xyz_qbx';
+	return $vars;
+}
+add_filter('query_vars', 'xyz_qbx_query_vars');
+
+
+function xyz_qbx_parse_request($wp) {
+	if (array_key_exists('xyz_qbx', $wp->query_vars)
+			&& $wp->query_vars['xyz_qbx'] == 'iframe') {
+		require( dirname( __FILE__ ) . '/iframe.php' );
+		die;
+	}
+	
+}
+add_action('parse_request', 'xyz_qbx_parse_request');
 
 ?>

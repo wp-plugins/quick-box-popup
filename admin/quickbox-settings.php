@@ -23,12 +23,12 @@ if($xyz_tinymce==1)
 		$xyz_qbx_height=abs(intval($_POST['xyz_qbx_height']));
 		
 		
-		
+		$xyz_qbx_showing_option="0,0,0";
 		
 		
 		$xyz_qbx_z_index=intval($_POST['xyz_qbx_z_index']);
 		
-	$xyz_qbx_corner_radius=$_POST['xyz_qbx_corner_radius'];
+	     $xyz_qbx_corner_radius=$_POST['xyz_qbx_corner_radius'];
 		
 		 $xyz_qbx_bg_color=$_POST['xyz_qbx_bg_color'];		
 	
@@ -36,7 +36,9 @@ if($xyz_tinymce==1)
 		$xyz_qbx_height_dim=$_POST['xyz_qbx_height_dim'];
 		$xyz_qbx_border_color=$_POST['xyz_qbx_border_color'];
 		$xyz_qbx_border_width=abs(intval($_POST['xyz_qbx_border_width']));
+		
 		$xyz_qbx_page_option=$_POST['xyz_qbx_page_option'];
+		
 		 $xyz_qbx_al=$_POST['xyz_qbx_display_position_arrange'];
 
 		
@@ -107,8 +109,26 @@ if($xyz_tinymce==1)
 			}
 			
 			
-		
-		
+		//echo $xyz_qbx_page_option=get_option('xyz_qbx_page_option');
+			if($xyz_qbx_page_option==2)
+			{
+				$qbx_pgf=0;
+				$qbx_pof=0;
+				$qbx_hp=0;
+				if(isset($_POST['xyz_qbx_pages']))
+					$qbx_pgf=1;
+				if(isset($_POST['xyz_qbx_posts']))
+					$qbx_pof=1;
+				if(isset($_POST['xyz_qbx_hp']))
+					$qbx_hp=1;
+			
+				$xyz_qbx_showing_option=$qbx_pgf.",".$qbx_pof.",".$qbx_hp;
+				
+				update_option('xyz_qbx_showing_option',$xyz_qbx_showing_option);
+				
+		   }
+			
+			
 $old_page_count=get_option('xyz_qbx_page_count');
 $old_repeat_interval=get_option('xyz_qbx_repeat_interval');
 if(isset($_POST['xyz_qbx_cookie_resett']))
@@ -160,7 +180,7 @@ if(isset($_POST['xyz_qbx_cookie_resett']))
 		update_option('xyz_qbx_title',$xyz_qbx_title);
 		update_option('xyz_qbx_title_color',$xyz_qbx_title_color);
 		
-			 update_option('xyz_qbx_position_predefined',$xyz_qbx_position_predefined);
+	    update_option('xyz_qbx_position_predefined',$xyz_qbx_position_predefined);
 			
 		?><br>
 		
@@ -168,15 +188,14 @@ if(isset($_POST['xyz_qbx_cookie_resett']))
 <?php
 }
 
-
 ?>
+
 <style type="text/css">
 label{
 cursor:default;
-
-
 }
 </style>
+
 <script type="text/javascript">
  
   jQuery(document).ready(function() {
@@ -199,16 +218,21 @@ cursor:default;
 v=document.getElementById('xyz_qbx_page_option').value;
 if(v==1)
 {
-	document.getElementById('automatic').style.display='';
-
+	document.getElementById('automatic').style.display='block';
+	document.getElementById('shopt').style.display='none';
 	document.getElementById('shortcode').style.display='none';		
 }
-
+if(v==2)
+{
+	document.getElementById('shopt').style.display='block';
+	document.getElementById('shortcode').style.display='none';
+	document.getElementById('automatic').style.display='none';	
+}
 if(v==3)
 
 {
-	document.getElementById('shortcode').style.display='';	
-	
+	document.getElementById('shortcode').style.display='block';
+	document.getElementById('shopt').style.display='none';
 	document.getElementById('automatic').style.display='none';
 }
   }
@@ -292,9 +316,22 @@ $xyz_qbx_iframe=get_option('xyz_qbx_iframe');
 $xyz_qbx_display_position=get_option('xyz_qbx_display_position');
 $xyz_qbx_position_predefined=get_option('xyz_qbx_position_predefined');
 
+
+$xyz_qbx_enable=get_option('$xyz_qbx_enable');
+
+	
+
+
 ?>
 <h2>Quickbox Settings</h2>
 <form method="post" >
+
+<?php 
+$xyz_qbx_showing_option=get_option('xyz_qbx_showing_option');
+
+$xyz_qbx_sh_arr=explode(",", $xyz_qbx_showing_option);
+?>
+
 
 <table  class="widefat" style="width:98%">
 <tr valign="top" >
@@ -478,15 +515,28 @@ $xyz_qbx_repeat_interval_timing=get_option('xyz_qbx_repeat_interval_timing');
 <td>
 <select name="xyz_qbx_page_option" id="xyz_qbx_page_option" onchange="bgchange()">
 <option value ="1" <?php if($xyz_qbx_page_option=='1') echo 'selected'; ?> >Automatic </option>
-
+<option value ="2" <?php if($xyz_qbx_page_option=='2') echo 'selected'; ?> >Specific Pages</option>
 <option value ="3" <?php if($xyz_qbx_page_option=='3') echo 'selected'; ?> >Manual </option>
 </select></td></tr>
-<tr valign="top" id="automatic"  style="display: none"><td scope="row" ></td><td >(Popup will load in all pages)</td>
 
+
+<tr valign="top" ><td scope="row" ></td><td>
+<span  id="automatic" >Popup will load in all pages</span>
+<span  id="shopt" >
+<input name="xyz_qbx_pages" value="<?php echo $xyz_qbx_sh_arr[0];?>"<?php if($xyz_qbx_sh_arr[0]==1){?> checked="checked"<?php } ?> type="checkbox"> On Pages 
+<input name="xyz_qbx_posts" value="<?php echo $xyz_qbx_sh_arr[1];?>"<?php if($xyz_qbx_sh_arr[1]==1){?> checked="checked"<?php }?>  type="checkbox"> On Posts
+<input name="xyz_qbx_hp" value="<?php echo $xyz_qbx_sh_arr[2];?>"<?php if($xyz_qbx_sh_arr[2]==1){?> checked="checked"<?php }?>  type="checkbox"> On Home page 
+</span>
+<span  id="shortcode" >Use this short code in your pages - [xyz_qbx_default_code]</span>
+</td>
 </tr>
 
+
+
+<!--  <tr valign="top" id="automatic"  style="display: none"><td scope="row" ></td><td >(Popup will load in all pages)</td>
+</tr>
 <tr valign="top" id="shortcode"  style="display: none"><td scope="row"></td><td>Use this short code in your pages - [xyz_qbx_default_code]</td>
-</tr>
+</tr>-->
 
 
 <tr valign="top">
@@ -514,4 +564,6 @@ bgchange();
 
 qbxcheck();
 </script>
-<?php ?>
+<?php
+
+?>

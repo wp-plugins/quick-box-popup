@@ -1,7 +1,7 @@
 <?php
 
 global $wpdb;
-require( dirname( __FILE__ ) .'../../../../wp-load.php');
+//require( dirname( __FILE__ ) .'../../../../wp-load.php');
 
 	$html=get_option('xyz_qbx_html');	
 

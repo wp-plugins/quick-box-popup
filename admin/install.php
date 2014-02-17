@@ -1,5 +1,23 @@
 <?php
+function xyz_qbx_network_install($networkwide) {
+	global $wpdb;
 
+	if (function_exists('is_multisite') && is_multisite()) {
+		// check if it is a network activation - if so, run the activation function for each blog id
+		if ($networkwide) {
+			$old_blog = $wpdb->blogid;
+			// Get all blog ids
+			$blogids = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+			foreach ($blogids as $blog_id) {
+				switch_to_blog($blog_id);
+				qbx_install();
+			}
+			switch_to_blog($old_blog);
+			return;
+		}
+	}
+	qbx_install();
+}
 
 function qbx_install()
 {
@@ -10,6 +28,13 @@ function qbx_install()
 	}
 	add_option("xyz_qbx_html", 'Hello world.');
 	add_option("xyz_qbx_tinymce", '1');
+	
+	add_option("xyz_qbx_cache_enable", '0');
+	
+	add_option("xyz_qbx_enable", '1');
+	add_option("xyz_qbx_showing_option",'0,0,0');
+	add_option("xyz_qbx_adds_enable",'1');
+	
 	add_option("xyz_qbx_width", '50');
 	add_option("xyz_qbx_height", '50');
 	
@@ -49,8 +74,11 @@ function qbx_install()
 		update_option('xyz_qbx_free_version', $currentversion);
 	}
 	
+	
+	
+	
 }
-register_activation_hook(XYZ_QBX_PLUGIN_FILE,'qbx_install');
 
 
+register_activation_hook( XYZ_QBX_PLUGIN_FILE ,'xyz_qbx_network_install');
 ?>
