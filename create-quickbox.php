@@ -22,12 +22,11 @@ function xyz_qbx_lightbox_create()
 	$ispage=is_page()?1:0;
 	$ispost=is_single()?1:0;
 	$ishome=is_home()?1:0;
-		wp_enqueue_script('jquery');
 	
+	wp_enqueue_script('jquery');
 	if($xyz_qbx_cache_enable==1)
 	{
-		
-		wp_enqueue_script( 'xyz_qbx_ajax_script', plugins_url( 'qbx_request.js', __FILE__ ), array('jquery') );
+	wp_enqueue_script( 'xyz_qbx_ajax_script', plugins_url( 'qbx_request.js', __FILE__ ), array('jquery') );
 	wp_localize_script( 'xyz_qbx_ajax_script', 'xyz_qbx_ajax_object', array( 'ajax_url' => admin_url( 'admin-ajax.php' ),'ispage'=>$ispage,'ispost'=>$ispost,'ishome'=>$ishome) );
 	}
 }

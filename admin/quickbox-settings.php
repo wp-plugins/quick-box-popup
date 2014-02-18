@@ -328,7 +328,6 @@ $xyz_qbx_enable=get_option('$xyz_qbx_enable');
 
 <?php 
 $xyz_qbx_showing_option=get_option('xyz_qbx_showing_option');
-
 $xyz_qbx_sh_arr=explode(",", $xyz_qbx_showing_option);
 ?>
 

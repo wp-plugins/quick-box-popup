@@ -1,8 +1,7 @@
-  
-  
-  <div style="clear: both;"></div>
+<?php 
+?>
 
-    
+<div style="clear: both;"></div>
 <p></p>
 
 <div style="width: 98%">
