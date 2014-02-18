@@ -19,6 +19,7 @@ A quicklook into Quick Box Popup
     ★ Display based on browsed number of pages
     ★ Css settings like color, z-index, border etc
     ★ Shortcode for displaying popup in specific pages
+    ★ Display specificaly in pages/posts/home page
 
 This plugin allows you to create a quick box popup window with custom content in your site. You can customize the popup display by configuring various settings such as display logic settings and style settings(z-index, color, border etc). The plugin supports automatic and manual (shortcode) display. You can use the plugin to display any type of contents such as special promotions, subscription forms, social media icons, feedback forms, video presentations and much more.
 
@@ -74,11 +75,15 @@ You may  use the popup to display any type of contents such as special promotion
 
 Yes, you can do this by using the shortcode provided from settings page.
 
-= 7. Can I create multiple popup boxes for different pages ? =
+= 7. Does it work with caching plugins ? =
+
+You can turn on compatibility with cache plugins from settings page. Please  note that since this method uses ajax, the popup will be a rendered a bit slower than in normal mode.
+
+= 8. Can I create multiple popup boxes for different pages ? =
 
 You need to purchase the premium version for having this feature.
 
-= 8. Where can i get the premium version ? =
+= 9. Where can i get the premium version ? =
 
 The premium version can be purchased from our site [xyzscripts.com](http://xyzscripts.com/wordpress-plugins/xyz-wp-popup/ "XYZ WP Popup").
 
