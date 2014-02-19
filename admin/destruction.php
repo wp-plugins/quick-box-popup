@@ -37,7 +37,7 @@ function qbx_destroy()
 	delete_option("xyz_qbx_enable");
 	delete_option("xyz_qbx_showing_option");
 	delete_option("xyz_qbx_adds_enable");
-	
+	delete_option("xyz_qbx_cache_enable");
 	
 	delete_option("xyz_qbx_delay");
 	delete_option("xyz_qbx_page_count");

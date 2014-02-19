@@ -32,8 +32,15 @@ if($xyz_qbx_adds_enable==1)
  - Just 39 USD 
 </h2>
 </div>
+
 <div style="float: left;padding: 5px">
 <a target="_blank" href="http://xyzscripts.com/members/product/purchase/XYZWPPOP"><img src="<?php  echo plugins_url("quick-box-popup/images/orange_buynow.png"); ?>"></a>
+</div>
+
+<div style="float: left; padding: 0 5px">
+<h2 style="vertical-align: middle;text-shadow: 1px 1px 1px #686868">
+			( <a 	href="<?php echo admin_url('admin.php?page=quickbox-about');?>">Compare Features</a> ) 
+</h2>		
 </div>
 
  </div>

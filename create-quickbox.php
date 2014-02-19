@@ -179,38 +179,32 @@ var screenheight=jQuery(window).height();
 var screenwidth=jQuery(window).width(); 
 var  widtr=document.getElementById('qbx_trig_div').offsetWidth;
 var hetr=document.getElementById('qbx_trig_div').offsetHeight;
+
 if(qbxhedim=="%")
 {
-	var hadnjust=(screenheight*qbxhe)/100;
-	qbxhe=hadnjust-(2*qbxbordwidth);
-	 document.getElementById("qbx_light").style.height=qbxhe+'px';
-	 qbxhedim="px";
+	qbxhe=(screenheight*qbxhe)/100;
+	
 }
+
+qbxhe=qbxhe-(2*qbxbordwidth);
+document.getElementById("qbx_light").style.height=qbxhe+'px';
+qbxhedim="px";
+
 if(qbxwiddim=="%")
 {
-	var wiadnjust=(screenwidth*qbxwid)/100;
-	qbxwid=wiadnjust-(2*qbxbordwidth);
-		document.getElementById("qbx_light").style.width=qbxwid+'px';
-		qbxwiddim="px";
+	qbxwid=(screenwidth*qbxwid)/100;
 }
-if(qbxhedim=="px")
+
+qbxwid=qbxwid-(2*qbxbordwidth);
+document.getElementById("qbx_light").style.width=qbxwid+'px';
+qbxwiddim="px";
+
+
+hadjust=(screenheight-qbxhe)/2-qbxbordwidth;		
+wiadjust=(screenwidth-qbxwid)/2-qbxbordwidth;
+
+if(slidestart==0)
 {
-hadjust=(screenheight-qbxhe)/2;
-}
-else
-{
-	hadjust=(100-qbxhe)/2;
-}
-if(qbxwiddim=="px")
-{		
-wiadjust=(screenwidth-qbxwid)/2;
-}
-else
-{
-	wiadjust=(100-qbxwid)/2;
-}
-	if(slidestart==0)
-	{
 		document.getElementById('qbx_trig_div').style.top='0px';
 if(def_disp==1)
 {

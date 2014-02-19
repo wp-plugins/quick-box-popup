@@ -1,7 +1,8 @@
 <?php
 $xyz_qbx_cache_enable=get_option("xyz_qbx_cache_enable");
+$xyz_qbx_enable=get_option('xyz_qbx_enable');
 $page_option=get_option('xyz_qbx_page_option');
-if($page_option==3)
+if($page_option==3 && $xyz_qbx_enable==1 )
 {
 	if($xyz_qbx_cache_enable==1)
 	{

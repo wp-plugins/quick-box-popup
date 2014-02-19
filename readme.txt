@@ -4,7 +4,7 @@ Donate link: http://xyzscripts.com/donate/
 Tags: quick popup, quick box, quick popup box, quick box popup, on click popup, on click quick popup, onclick popup, custom message popup, popup message on pages, popup message,popup, popup box
 Requires at least: 2.8
 Tested up to: 3.8.1
-Stable tag: 1.1
+Stable tag: 1.1.1
 License: GPLv2 or later
 
 Create a javascript based, light-weight and non-annoying onclick quick  popup box in your blog.
@@ -95,6 +95,9 @@ More questions ? [Drop a mail](http://xyzscripts.com/support/ "XYZScripts Suppor
 1. Sample quick box which has a feedback form. 
 
 == Changelog ==
+
+= 1.1.1 =
+* Fix for enable popup issue.
 
 = 1.1 =
 * Display specifically in pages/posts/home page.
