@@ -7,6 +7,7 @@ if($xyz_tinymce==1)
 }
 	if (isset($_POST['xyz_qbx_html']))
 	{
+		$_POST=stripslashes_deep($_POST);
 		$xyz_qbx_iframe=$_POST['xyz_qbx_iframe'];
 		
 		$xyz_qbx_html=stripslashes($_POST['xyz_qbx_html']);
@@ -444,7 +445,7 @@ $xyz_qbx_repeat_interval_timing=get_option('xyz_qbx_repeat_interval_timing');
 				
 <tr valign="top">
 
-<td scope="row" colspan="1"><label for="xyz_qbx_bgimage_option">Display as iframe </label></td><td>
+<td scope="row" colspan="1"><label for="xyz_qbx_iframe">Display as iframe </label></td><td>
 
 
 <select name="xyz_qbx_iframe" id="xyz_qbx_iframe"  >
